@@ -1,5 +1,4 @@
 'use client';
-import PageTitle from "@/app/components/home/PageTitle";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -11,10 +10,9 @@ import Image from "next/image";
 export default function Page() {
   return (
     <div>
-      <PageTitle title="Resources" />
       {/* Guides & Tutorials Header */}
       <Container>
-        <div className="section-title position-relative pb-3 mb-5" style={{ marginTop: "-80px" }}>
+        <div className="section-title position-relative pb-3 mb-5">
           <h1 className="mb-0">Guides & Tutorials</h1>
         </div>
       </Container>

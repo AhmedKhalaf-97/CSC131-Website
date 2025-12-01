@@ -5,17 +5,13 @@ import {
   TwitterX
 } from "react-bootstrap-icons";
 
-import PageTitle from "@/app/components/home/PageTitle";
-
 import {CustomerInquiryForm} from "@/app/components/home/forms/CustomerInquiryForm";
 
 export default function ContactPage() {
 
   return (
     <>
-      <PageTitle title="Contact" />
-
-      <div style={{ marginTop: "-60px" }}>
+      <div>
         <div className="container mt-4">
           <div className="card mb-4 p-4 flex-lg-row flex-column">
 

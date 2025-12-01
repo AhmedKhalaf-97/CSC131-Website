@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const DEBUG = true;
+
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
@@ -11,19 +13,31 @@ export async function POST(req: Request) {
     const email = formData.get("contactEmail")?.toString() || "Not provided";
     const phone = formData.get("contactPhone")?.toString() || "Not provided";
     const message = formData.get("message")?.toString() || "No message";
-    const services = formData.get("services")?.toString() || "None";
+    const personalServices = formData.get("personalServices")?.toString() || "None";
+    const businessServices = formData.get("businessServices")?.toString() || "None";
 
     const body = `
 New customer inquiry received:
 
+Contact Info:
 Name: ${fullName}
 Email: ${email}
 Phone: ${phone}
-Selected Services: ${services}
+
+Requested Personal Services:
+${personalServices}
+
+Requested Business Services:
+${businessServices}
 
 Message:
 ${message}
 `;
+
+    if(DEBUG) {
+      console.log(body);
+      return NextResponse.json({ success: true });
+    }
 
     await resend.emails.send({
       from: process.env.RESEND_FROM!,

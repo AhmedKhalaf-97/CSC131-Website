@@ -5,13 +5,13 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-export function Articles() {
+export default function Articles() {
 
   return (
     <>
 
       {/* Section Title */}
-      <div className="section-title position-relative pb-3 mb-5" style={{ marginTop: "-80px" }}>
+      <div className="position-relative pb-3 mb-5">
         <h1 className="mb-0">News</h1>
       </div>
 

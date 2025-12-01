@@ -1,6 +1,6 @@
 {
   "name": "csc131-website",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -11,8 +11,8 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "next": "15.2.4",
-    "nodemailer": "^6.10.1",
+    "next": "15.4.7",
+    "nodemailer": "7.0.7",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-bootstrap-icons": "^1.11.5",

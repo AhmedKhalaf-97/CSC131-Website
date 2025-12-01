@@ -1,23 +1,22 @@
-import PageTitle from "@/app/components/home/PageTitle";
-
 import {TelephoneFill} from "react-bootstrap-icons";
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Link from "next/link";
 
+import {phone, tel} from "../../../../public/data/ContactInfo.json";
+
 export default function AboutPage() {
 
   return(
     <div>
-      <PageTitle title="About" />
 
-      <div className="container-fluid py-5 fadeInUp" style={{marginTop:'-150px', marginBottom:'-100px'}}>
-        <div className="container py-5">
+
+      <div className="container-fluid py-5 fadeInUp">
+        <div className="container">
           <div className="row g-5">
             <div className="col-lg-7">
-              <div className="section-title position-relative pb-3 mb-4">
-                <h5 className="fw-bold text-primary text-uppercase">About Us</h5>
-                <h1 className="mb-0">Who is Ron?</h1>
+              <div className=" mb-4">
+                <h2 className="mb-0">Who is Ron?</h2>
               </div>
               <div className="mb-4">
 
@@ -30,8 +29,8 @@ export default function AboutPage() {
                 Ron specializes in Retirement Planning, college planning, tax planning, and estate planning.
                 Offer business owners and individuals life insurance, Health Insurance, Long term care insurance, disability insurance, alternatives, stocks, bonds mutual funds, IRA’s, 401(k)’s, retirement plan rollovers etc...
 
-                <div className="section-title position-relative pb-3 my-4">
-                  <h1 className="mb-0">Career History</h1>
+                <div className="position-relative my-4">
+                  <h2 className="mb-0">Career History</h2>
                 </div>
                 <ul>
                   <li>Ron has been in the career field of financial advising since 2002.</li>
@@ -51,7 +50,7 @@ export default function AboutPage() {
                 </div>
                 <div className="ps-4">
                   <h5 className="mb-2">Still have questions? Give Ron a call!</h5>
-                  <h4 className="text-primary mb-0">(714) 202-9858</h4>
+                  <h4 className="text-primary mb-0"><a href={`tel:${tel}`}>{phone}</a></h4>
                 </div>
               </div>
               <Link href={"/contact"} className={"btn btn-primary py-3 px-5 mt-3 wow zoomIn"} data-wow-delay="0.9s">Send a message</Link>
@@ -60,8 +59,8 @@ export default function AboutPage() {
 
             <Col lg={"5"} md={"8"} className={"d-flex flex-column justify-content-center"}>
               <Image
-                fluid={true}
-                rounded={true}
+                fluid
+                rounded
                 src={"/img/Ron_Headshot.jpg"}
                 alt={"About Image"}
                 className={"wow zoomIn"}
