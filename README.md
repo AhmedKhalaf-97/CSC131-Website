@@ -4,38 +4,15 @@
 This repository contains the source code for the Ron Smithey Financial Services website. The website aims to provide a professional online presence for the client, showcasing their services and engaging with prospective customers.
 
 ## Tech Stack
-- **Frontend:** React, Bootstrap, MUI-X
+- **Frontend:** React, Bootstrap
 - **Backend:** Typescript, React, Next.js
-- **Database:** Neon Postgres
-- **Version Control:** Git and GitHub
+- **VCS:** Git and GitHub
 - **Deployment:** Vercel
 
-## Key Features
-- **Homepage:** Clear introduction and professional visuals representing Ron Smithey Financial Services.
-- **About Us:** Mission statement and company background.
-- **Services:** Detailed descriptions of financial services offered:
-  - Financial Planning & Advisory
-  - Wealth Management
-  - Corporate Financial Solutions
-  - Tax & Insurance Planning
-  - Educational Resources (workshops, articles, webinars)
-- **Client Success Stories:** Featured case studies and client testimonials.
-- **Investment Opportunities:** Listing of curated financial products and interactive tools.
-- **Resources:** Blog posts, guides, FAQs, and downloadable content.
-- **Compliance and Legal:** Regulatory updates and disclosures.
-- **Contact Us:** Inquiry form, contact details, and social media links.
-- **Community Engagement:** Financial forums and event calendars.
-- **Admin Portal:** Admin login for controlling publicly viewable content and managing client submitted data
-- **Privacy Policy:** Legal documentation outlining terms of service and data privacy.
-
-## Team Members 
-<b>Ahmed Khalaf</b><br/>
-akhalaf@csus.edu<br/>
-Backend Developer<br/>
-
+## Team Members
 <b>Aidan Anderson</b><br/>
 aidananderson2@csus.edu<br/>
-Backend Developer - Team Lead<br/>
+Frontend/Backend Developer - Team Lead<br/>
 
 <b>Ethan Millward</b><br/>
 ethanmillward@csus.edu<br/>
@@ -43,14 +20,6 @@ Frontend Developer<br/>
 
 <b>Adam Truett</b><br/>
 adamtruett@csus.edu<br/>
-Frontend Developer<br/>
-
-<b>Derrick Lyerly</b><br/>
-dlyerly@csus.edu<br/>
-Frontend Developer<br/>
-
-<b>Diego Mendoza</b><br/>
-diegomendoza@csus.edu<br/>
 Frontend Developer<br/>
 
 ## Client Info:
