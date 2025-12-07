@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Nunito, Rubik } from "next/font/google";
+import {Roboto} from "next/font/google";
 
 // Libraries Stylesheet
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "../../public/css/bootstrap.min.css";
+import "../../public/css/style.css";
 
 import React from "react";
 
-const nunito = Nunito({
+const roboto = Roboto({
   weight: ["400", "600", "700", "800"],
-  subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext"]
-});
-
-const rubik = Rubik({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext"]
+  subsets: ["latin"],
+  variable: "--bs-body-font-family"
 });
 
 export const metadata: Metadata = {
@@ -28,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={nunito.className + " " + rubik.className}>
-      {children}
+    <html lang="en">
+      <body className={roboto.className}>
+        {children}
+      </body>
     </html>
   );
 }

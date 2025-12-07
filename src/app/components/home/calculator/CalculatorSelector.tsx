@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import CalculatorField from "./calculatorField";
 import calculatorData from "../data/calculatorData.json";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-const CalculatorSelector = () => {
+export default function CalculatorSelector() {
   const calculators = [
     {
       id: "loanCredit",
@@ -57,24 +59,26 @@ const CalculatorSelector = () => {
     },
   ];
 
+  const [selectedAccordion, setSelectedAccordion] = useState("");
   const [selectedCalc, setSelectedCalc] = useState<number | null>(null);
   const selectedData = calculatorData.find((calc) => calc.id === selectedCalc);
 
   return (
-    <div className="container py-4">
-      <div className="row">
-        <div className="col-md-4">
-          <Accordion defaultActiveKey="0">
+      <Row>
+
+        <Col md={4} className={"mb-4"}>
+
+          <Accordion activeKey={selectedAccordion}>
             {calculators.map((category, idx) => (
-              <Accordion.Item eventKey={String(idx)} key={category.id}>
-                <Accordion.Header>{category.title}</Accordion.Header>
+              <Accordion.Item eventKey={idx.toString()} key={category.id}>
+                <Accordion.Header onClick={() => selectedAccordion === idx.toString() ? setSelectedAccordion("") : setSelectedAccordion(idx.toString())}>{category.title}</Accordion.Header>
                 <Accordion.Body>
                   {category.calcs.map((calc, index) => (
                     <Button
-                      key={calc}
-                      variant="outline-secondary"
+                      key={index}
+                      variant="outline-dark"
                       className="d-block mb-2 w-100 text-start"
-                      onClick={() => setSelectedCalc(category.keys[index])}
+                      onClick={() => {setSelectedCalc(category.keys[index]); setSelectedAccordion("")}}
                     >
                       {calc}
                     </Button>
@@ -83,19 +87,23 @@ const CalculatorSelector = () => {
               </Accordion.Item>
             ))}
           </Accordion>
-        </div>
-        <div className="col-md-8">
-          {selectedData && (
+
+        </Col>
+
+        <Col md={8}>
+          {selectedData ? (
             <Card>
               <Card.Body>
                 <CalculatorField key={selectedCalc} data={selectedData} />
               </Card.Body>
             </Card>
+          ): (
+            <div className={"d-flex h-50 align-items-center justify-content-center"}>
+              <h5>Select a calculator to try out</h5>
+            </div>
           )}
-        </div>
-      </div>
-    </div>
+        </Col>
+
+      </Row>
   );
 };
-
-export default CalculatorSelector;

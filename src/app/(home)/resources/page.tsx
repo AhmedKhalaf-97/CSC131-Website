@@ -1,12 +1,10 @@
-import PageTitle from "@/app/components/home/PageTitle";
 import Link from "next/link";
 
 export default function Page() {  
   return(
       <div>
-          <PageTitle title="Resources" />
 
-          <div className="container-fluid facts py-4">
+          <div className="container-fluid py-4">
               <div className="container py-5">
                   <div className="row gx-4 gy-4">
                       <div className="col-lg-4 col-md-6">
@@ -36,6 +34,15 @@ export default function Page() {
                               <Link href="/resources/faqs" className="btn btn-light px-4 mt-4 mb-2">View FAQs</Link>
                           </div>
                       </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="bg-light shadow d-flex flex-column align-items-center justify-content-center p-4 h-100 rounded">
+                        <h2 className="text-primary pt-2 mb-2">Calculators</h2>
+                        <h5 className="text-center mb-0">
+                          Calculate the finances of any situation you can think of
+                        </h5>
+                        <Link href="/resources/calculators" className="btn btn-primary px-4 mt-4 mb-2">Check them out!</Link>
+                      </div>
+                    </div>
                   </div>
               </div>
           </div>

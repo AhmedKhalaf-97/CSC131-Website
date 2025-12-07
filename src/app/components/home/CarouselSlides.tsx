@@ -12,19 +12,19 @@ export default function CarouselSlides() {
           nextIcon={<CaretRightFill size={32}/>}
           fade touch>
             <CarouselItem className="carousel-item"> 
-                <div style={{maxHeight: '900px'}}>
-                    <Image src="/img/homepage.jpg" priority={true} width={1920} height={1080}
-                        style={{
-                            width: '100%',
-                            height: 'auto'}} alt="Image" />
+              <div style={{maxHeight: '900px'}}>
+                  <Image src="/img/homepage.jpg" priority={true} width={1920} height={1080}
+                      style={{
+                          width: '100%',
+                          height: 'auto'}} alt="Image" />
+              </div>
+              <CarouselCaption className="d-flex flex-column align-items-center justify-content-center">
+                <div className="p-3" style={{maxWidth: '900px'}}>
+                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">
+                    Ron Smithey Financial Services
+                  </h1>
                 </div>
-                <CarouselCaption className="d-flex flex-column align-items-center justify-content-center">
-                    <div className="p-3" style={{maxWidth: '900px'}}>
-                        <h1 className="display-1 text-white mb-md-4 animated zoomIn">
-                            Ron Smithey Financial Services
-                        </h1>
-                    </div>
-                </CarouselCaption>
+              </CarouselCaption>
             </CarouselItem>
             <CarouselItem className="carousel-item"> 
                 <div style={{maxHeight: '900px'}}>

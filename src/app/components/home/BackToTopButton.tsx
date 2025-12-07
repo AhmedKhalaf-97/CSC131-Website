@@ -1,8 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import {ArrowUp} from "react-bootstrap-icons";
 
-function BackToTopButton() {
+export default function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
@@ -30,15 +31,15 @@ function BackToTopButton() {
 
   return (
     <Button
+      variant={"primary"}
+      size={"lg"}
       onClick={scrollToTop}
-      className="btn btn-lg btn-primary btn-lg-square rounded back-to-top"
+      className="btn btn-lg-square rounded back-to-top"
       style={{
         display: isVisible ? 'inline' : 'none',
       }}
     >
-      <i className="bi bi-arrow-up"></i>
+      <ArrowUp size={20}/>
     </Button>
   );
 }
-
-export default BackToTopButton;

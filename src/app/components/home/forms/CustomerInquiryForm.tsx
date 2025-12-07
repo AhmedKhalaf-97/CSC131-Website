@@ -1,63 +1,90 @@
 'use client';
 
-import React, { useState } from "react";
-import { Button, Form, Alert, Col } from "react-bootstrap";
+import React, {useState, useTransition} from "react";
+import {Button, Form, Alert, Col, Spinner} from "react-bootstrap";
 import Link from "next/link";
 import Row from "react-bootstrap/Row";
 
+const MAX_MESSAGE_LENGTH = 400;
+
 const personalServices = [
+  "Comprehensive Planning",
   "401 (k) Rollovers",
   "College Planning",
-  "Comprehensive Planning",
-  "Disability Insurance",
   "Estate Planning",
+  "Minimize Estate Taxes",
+  "Disability Insurance",
   "Health Insurance",
   "Life Insurance",
   "Long Term Care",
   "Retirement Planning",
   "Roth IRA",
   "Traditional IRA",
+  "Real Estate Review",
   "Other"
 ];
 
 const businessServices = [
-  "Business Disability Insurance Plans",
-  "Business Health Insurance Plans",
-  "Business Life Insurance Plans",
-  "Business Retirement Plans"
+  "Consulting",
+  "Disability Insurance Plans",
+  "Health Insurance Plans",
+  "Key Employee/Partner Protection",
+  "Life Insurance Plans",
+  "Retirement Plans",
+  "Sell, buy or start a business"
 ];
 
 export function CustomerInquiryForm() {
+
+  const [isPending, startTransition] = useTransition();
+
   const [status, setStatus] = useState<string | null>(null);
   const [messageLength, setMessageLength] = useState(0);
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [selectedPersonalServices, setSelectedPersonalServices] = useState<string[]>([]);
+  const [selectedBusinessServices, setSelectedBusinessServices] = useState<string[]>([]);
 
-  const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePersonalCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    setSelectedServices((prev) =>
+    setSelectedPersonalServices((prev) =>
       checked ? [...prev, value] : prev.filter((v) => v !== value)
     );
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleBusinessCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    setSelectedBusinessServices((prev) =>
+      checked ? [...prev, value] : prev.filter((v) => v !== value)
+    );
+  };
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
   e.preventDefault();
-  const form = e.currentTarget;
-  const formData = new FormData(form);
-  formData.append("services", selectedServices.join(", "));
 
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    body: formData,
+  startTransition(async () => {
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append("personalServices", selectedPersonalServices.join(", "));
+    formData.append("businessServices", selectedBusinessServices.join(", "));
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (res.ok) {
+      setStatus("Message sent successfully.");
+      form.reset();
+      setSelectedPersonalServices([]);
+      setSelectedBusinessServices([]);
+      setMessageLength(0);
+    } else {
+      setStatus("Failed to send message. Please try again later.");
+    }
+
   });
-
-  if (res.ok) {
-    setStatus("Message sent successfully.");
-    form.reset();
-    setSelectedServices([]);
-    setMessageLength(0);
-  } else {
-    setStatus("Failed to send message. Please try again later.");
-  }
 };
 
   if(status)
@@ -91,7 +118,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     <Form.Check.Input
                       type="checkbox"
                       value={service}
-                      onChange={handleCheckbox}
+                      onChange={handlePersonalCheckbox}
                     />
                     <Form.Check.Label>{service}</Form.Check.Label>
                   </Form.Check>
@@ -105,7 +132,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     <Form.Check.Input
                       type="checkbox"
                       value={service}
-                      onChange={handleCheckbox}
+                      onChange={handleBusinessCheckbox}
                     />
                     <Form.Check.Label>{service}</Form.Check.Label>
                   </Form.Check>
@@ -120,16 +147,23 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               as="textarea"
               name="message"
               rows={4}
-              maxLength={300}
+              maxLength={MAX_MESSAGE_LENGTH}
               placeholder="Enter any additional details..."
               onChange={(e) => setMessageLength(e.target.value.length)}
+              style={{resize: "none"}}
             />
             <small className="form-text text-muted">
-              {300 - messageLength} characters remaining
+              {MAX_MESSAGE_LENGTH - messageLength} characters remaining
             </small>
           </Form.Group>
 
-          <Button type="submit" className="mt-3">Submit</Button>
+          <Button type="submit" className="mt-3" disabled={isPending}>
+            {isPending ?
+              <Spinner animation={"border"} size={"sm"}/> :
+              "Submit"
+            }
+          </Button>
+
         </Form>
       </div>
     </div>

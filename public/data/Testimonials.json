@@ -1,18 +1,17 @@
 [
     {
-        "clientName": "Alex R.",
-        "statement": "\"Good service, would recommend!\""
+        "clientName": "Yvonne B.",
+        "age": 61,
+        "statement": "As a client of Ron Smithey for the past 17 years, I have only had great experiences with Ron's guidance and financial advice. Ron has always been clear with his communication and makes sure that I understand my accounts and any necessary changes that apply. I feel Ron is always looking out for the best investments for my future and his recommendations have always brought a positive return.  Ron is patient and he sincerely cares.  He demonstrates this by having quarterly reviews and will call frequently to ask after my welfare and financial well-being.  I never hesitate to recommend Ron to friends and acquaintances that need financial advice because I know he has the excellent experience and broad knowledge share."
     },
     {
-        "clientName": "Jamie L.",
-        "statement": "\"I make money!\""
+        "clientName": "Jeff M.",
+        "age": 70,
+        "statement": "Ron was recommended by my wife during my retirement.  At that time, I had a strong desire to transition my company sponsored 401K to another investment option.  Ron took the time to listen to my needs and establish accounts that were appropriate for my risk tolerance.  Ron is extremely sharp and very knowledgeable and understands market positions. I trust Ron and have benefitted well from Ron's direction, and I am very happy with my results and feel confident he will continue to steer me to the best options going forward."
     },
     {
         "clientName": "Dylan S.",
-        "statement": "\"Ron is the GOAT!!!!\""
-    },
-    {
-        "clientName": "Jaqaun P.",
-        "statement": "\"Got my bread up!\""
+        "age": 99,
+        "statement": "Ron is the GOAT!!!!"
     }
 ]
