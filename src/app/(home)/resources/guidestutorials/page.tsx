@@ -12,7 +12,7 @@ export default function Page() {
     <div>
       {/* Guides & Tutorials Header */}
       <Container>
-        <div className="section-title position-relative pb-3 mb-5">
+        <div className="pb-3 mb-5">
           <h1 className="mb-0">Guides & Tutorials</h1>
         </div>
       </Container>

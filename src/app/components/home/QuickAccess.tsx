@@ -2,7 +2,6 @@ import Link from "next/link"
 
 export default function QuickAccess() {
   return (
-    <div className="container-fluid facts py-5 pt-lg-0" style={{marginTop: '-10px', marginBottom: '-100px'}}>
       <div className="container py-5 pt-lg-0">
         <div className="row gx-0">
           <div className="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
@@ -33,6 +32,5 @@ export default function QuickAccess() {
           </div>
         </div>
       </div>
-    </div>
   )
 }

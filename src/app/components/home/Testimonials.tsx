@@ -1,6 +1,6 @@
 'use client';
 
-import { Carousel, CarouselItem } from "react-bootstrap";
+import {Accordion, AccordionBody, AccordionButton, AccordionHeader, Carousel, CarouselItem} from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 import testimonials from "../../../../public/data/Testimonials.json";
 
@@ -47,16 +47,26 @@ export default function Testimonials() {
                                                 className="d-flex align-items-center border-bottom pt-5 pb-4 px-5"
                                                 style={colIndex === 1 ? { backgroundColor: "white" } : {}}
                                             >
+                                              <Accordion>
+                                                <AccordionHeader>
                                                 <div className="ps-4">
                                                     <h4 className="text-primary mb-1">{testimonials[col].clientName}</h4>
                                                     <small className="text-uppercase">Age {testimonials[col].age}</small>
                                                 </div>
+                                                </AccordionHeader>
+                                                <AccordionBody>
+                                                  {testimonials[col].statement}
+                                                </AccordionBody>
+                                                <AccordionButton>
+                                                  Click
+                                                </AccordionButton>
+                                              </Accordion>
                                             </div>
                                             <div
                                                 className="pt-4 pb-5 px-5"
                                                 style={colIndex === 1 ? { backgroundColor: "white" } : {}}
                                             >
-                                                {testimonials[col].statement}
+
                                             </div>
                                         </div>
                                     </div>
