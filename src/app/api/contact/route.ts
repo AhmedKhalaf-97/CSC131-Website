@@ -35,7 +35,12 @@ ${message}
 `;
 
     if(DEBUG) {
+
       console.log(body);
+
+      //Test artificial lag
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
       return NextResponse.json({ success: true });
     }
 

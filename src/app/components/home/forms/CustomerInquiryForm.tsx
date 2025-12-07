@@ -74,9 +74,6 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       body: formData,
     });
 
-    //Test artificial lag
-    await new Promise(resolve => setTimeout(resolve, 5000));
-
     if (res.ok) {
       setStatus("Message sent successfully.");
       form.reset();
