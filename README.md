@@ -22,6 +22,10 @@ Frontend Developer<br/>
 adamtruett@csus.edu<br/>
 Frontend Developer<br/>
 
+<b>Ahmed Khalaf</b><br/>
+akhalaf@csus.edu<br/>
+Frontend/Backend Developer<br/>
+
 ## Client Info:
 - Name: Ron Smithey Financial Services
 - Email: ron.smithey@lpl.com
